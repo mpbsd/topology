@@ -1,0 +1,32 @@
+\documentclass{book}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\renewcommand{\thesection}{\Alph{section}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\title{General Topology}
+\author{Marcelo Bezerra}
+
+\bibliographystyle{plain}
+
+\begin{document}
+
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\input{chp/topologicalspaces}
+
+\backmatter
+
+\nocite{*}
+\bibliography{bib/main}
+
+\end{document}
