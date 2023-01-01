@@ -1,27 +1,24 @@
 \documentclass{book}
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[english]{babel}
+\usepackage{enumerate}
 \usepackage{mathtools}
 
-% Use letters instead of numbers for section numbering
+% section numbering: capital letters
 \renewcommand{\thesection}{\Alph{section}}
 
-% theorem style
-\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+% environment for problems
+\newtheoremstyle{dotless}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{}{6pt}{}
 \theoremstyle{dotless}
-
 \newtheorem{problem}{}
 \renewcommand{\theproblem}{(\alph{problem})}
 
-\newtheorem{solution}{Solution}
-\renewcommand{\thesolution}{}
+\newtheorem{solution}
 
-% custom commands
-% absolute value and norm
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% commands
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}  % absolut value
+\DeclarePairedDelimiter\norm{\lVert}{\rVert} % norm
 
 \title{General Topology}
 \author{Marcelo Bezerra}
@@ -37,7 +34,9 @@
 \mainmatter
 
 \chapter{Topological Spaces}\label{ch:topological-spaces}
+
 \input{chp/01/sec/a}
+\input{chp/01/sec/b}
 
 \backmatter
 
