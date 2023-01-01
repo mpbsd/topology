@@ -5,17 +5,18 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 
-% theorem style
-\theoremstyle{plain}
-
-\newtheorem{exercise}{Exercise}
-\renewcommand{\theexercise}{\Alph{exercise}}
-
-\newtheorem{solution}{Solution}
-\renewcommand{\thesolution}{\Alph{solution}}
-
 % Use letters instead of numbers for section numbering
 \renewcommand{\thesection}{\Alph{section}}
+
+% theorem style
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+
+\newtheorem{problem}{}
+\renewcommand{\theproblem}{(\alph{problem})}
+
+\newtheorem{solution}{Solution}
+\renewcommand{\thesolution}{}
 
 % custom commands
 % absolute value and norm
