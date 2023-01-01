@@ -5,20 +5,18 @@
 \usepackage{enumerate}
 \usepackage{mathtools}
 
-% section numbering: capital letters
 \renewcommand{\thesection}{\Alph{section}}
 
-% environment for problems
 \newtheoremstyle{dotless}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{}{6pt}{}
+
 \theoremstyle{dotless}
 \newtheorem{problem}{}
 \renewcommand{\theproblem}{(\alph{problem})}
 
-\newtheorem{solution}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 
-% commands
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}  % absolut value
-\DeclarePairedDelimiter\norm{\lVert}{\rVert} % norm
+\DeclarePairedDelimiter\absolutevalue{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
 \title{General Topology}
 \author{Marcelo Bezerra}
