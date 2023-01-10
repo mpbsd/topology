@@ -9,12 +9,12 @@
   If \(\mathcal{T}_{\gamma\in\Gamma}\) is an arbitrary family of topologies for
   a given set \(X\), then 
   \[
-    \mathcal{T}=\bigcap_{\gamma\in\Gamma}\mathcal{T}_{\gamma},
+    \mathcal{T}=\bigcap_{\gamma\in\Gamma}\mathcal{T}_{\gamma}
   \]
   is also a topology for \(X\), for the following reasons:
   \begin{enumerate}
     \item
-      the intersection of any two members of \(\mathcal{T}\) is a member of
+      The intersection of any two members of \(\mathcal{T}\) is a member of
       \(\mathcal{T}\):
 
       If \(U\) and \(V\) are in \(\mathcal{T}\) then, for each
@@ -24,7 +24,7 @@
       \(\gamma\in\Gamma\), \(U\cap{V}\) is in \(\mathcal{T}\).
 
     \item
-      the union of an arbitrary family of sets in \(\mathcal{T}\) is a member
+      The union of an arbitrary family of sets in \(\mathcal{T}\) is a member
       of \(\mathcal{T}\):
 
       If \(\left\{U_{\alpha}:\alpha\in{A}\right\}\) is a family of sets
@@ -48,7 +48,27 @@
 \end{problem}
 
 \begin{solution}
-  adf
+  Let's devide in two parts
+  \begin{enumerate}
+    \item
+      If \(X\) has at most two distinct elements, say \(x\) and \(y\),
+      then
+      \begin{align}
+        \label{eq:topology-t0-on-a-two-elements-set}
+        \mathcal{T}_{0}&=\left\{\emptyset,X\right\}\\
+        \label{eq:topology-t1-on-a-two-elements-set}
+        \mathcal{T}_{1}&=\left\{\emptyset,\left\{x\right\},X\right\}\\
+        \label{eq:topology-t2-on-a-two-elements-set}
+        \mathcal{T}_{2}&=\left\{\emptyset,\left\{y\right\},X\right\}\\
+        \label{eq:topology-t3-on-a-two-elements-set}
+        \mathcal{T}_{3}&=\left\{\emptyset,\left\{x\right\},\left\{y\right\},X\right\}
+      \end{align}
+      are the only possible topologies for \(X\). It follows from equations
+      \eqref{eq:topology-t1-on-a-two-elements-set} trough
+      \eqref{eq:topology-t3-on-a-two-elements-set} that the union between any
+      two of them is again a topology for \(X\) and is, of course, already on
+      that list.
+  \end{enumerate}
 \end{solution}
 
 \begin{problem}
