@@ -1,17 +1,50 @@
 \section{Largest and smallest topologies}
 
 \begin{problem}
-  The intersection of any collection of topologies for $X$ is a topology for
-  $X$.
+  The intersection of any collection of topologies for \(X\) is a topology for
+  \(X\).
 \end{problem}
 
 \begin{solution}
-  Let $\tau_{\alpha}$ be an arbitrary family of topologies for $X$.
+  If \(\mathcal{T}_{\gamma\in\Gamma}\) is an arbitrary family of topologies for
+  a given set \(X\), then 
+  \[
+    \mathcal{T}=\bigcap_{\gamma\in\Gamma}\mathcal{T}_{\gamma},
+  \]
+  is also a topology for \(X\), for the following reasons:
+  \begin{enumerate}
+    \item
+      the intersection of any two members of \(\mathcal{T}\) is a member of
+      \(\mathcal{T}\):
+
+      If \(U\) and \(V\) are in \(\mathcal{T}\) then, for each
+      \(\gamma\in\Gamma\), they also are in \(\mathcal{T}_{\gamma}\) and,
+      because \(\mathcal{T}_{\gamma}\) is a topology, the set \(U\cap{V}\) is
+      in \(\mathcal{T}_{\gamma}\). Since this is true for each
+      \(\gamma\in\Gamma\), \(U\cap{V}\) is in \(\mathcal{T}\).
+
+    \item
+      the union of an arbitrary family of sets in \(\mathcal{T}\) is a member
+      of \(\mathcal{T}\):
+
+      If \(\left\{U_{\alpha}:\alpha\in{A}\right\}\) is a family of sets
+      \(U_{\alpha}\in\mathcal{T}\) then, for each \(\gamma\in\Gamma\), it is
+      also a family of sets \(U_{\alpha}\in\mathcal{T}_{\gamma}\) and, because
+      \(\mathcal{T}_{\gamma}\) is a topology, the set
+      \begin{equation}
+        \bigcup_{\alpha\in{A}}U_{\alpha}
+        \label{eq:union-00}
+      \end{equation}
+      is in \(\mathcal{T}_{\gamma}\). Since this is true for each
+      \(\gamma\in\Gamma\), the set in \eqref{eq:union-00} is in
+      \(\mathcal{T}\).
+
+  \end{enumerate}
 \end{solution}
 
 \begin{problem}
-  The union of two topologies for $X$ may not be a topology for $X$ (unless $X$
-  consists of at most two points).
+  The union of two topologies for \(X\) may not be a topology for \(X\) (unless
+  \(X\) consists of at most two points).
 \end{problem}
 
 \begin{solution}
@@ -19,7 +52,7 @@
 \end{solution}
 
 \begin{problem}
-  For any collection of topologies for $X$ there is a unique largest topology
+  For any collection of topologies for \(X\) there is a unique largest topology
   which is smaller than each member of the collection, and a unique smallest
   topology which is greater than each member of the collection.
 \end{problem}
