@@ -8,23 +8,23 @@ else
 	DOC_VIEWER = zathura
 endif
 
-draft:
+draft: main.tex
 	$(TEX_ENGINE) main
 	$(TEX_ENGINE) main
 	$(DOC_VIEWER) main.pdf
 
-final:
+final: main.tex bib/main.bib
 	$(TEX_ENGINE) main
 	$(BIB_ENGINE) main
 	$(TEX_ENGINE) main
 	$(DOC_VIEWER) main.pdf
 
 clean:
-	find . -type f -name main.aux | xargs rm -rf
-	find . -type f -name main.bbl | xargs rm -rf
-	find . -type f -name main.blg | xargs rm -rf
-	find . -type f -name main.log | xargs rm -rf
-	find . -type f -name main.pdf | xargs rm -rf
-	find . -type f -name main.toc | xargs rm -rf
+	find . -type f -name *.aux | xargs rm -rf
+	find . -type f -name *.bbl | xargs rm -rf
+	find . -type f -name *.blg | xargs rm -rf
+	find . -type f -name *.log | xargs rm -rf
+	find . -type f -name *.pdf | xargs rm -rf
+	find . -type f -name *.toc | xargs rm -rf
 
 .PHONY: draft final clean
