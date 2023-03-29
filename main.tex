@@ -1,21 +1,24 @@
 \documentclass[a4paper,12pt]{book}
 
+% load packages
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[english]{babel}
 \usepackage{enumerate}
 \usepackage{mathtools}
 
-% section numbering: A, B, et cetera
-\renewcommand{\thesection}{\Alph{section}}
-
-% custom environments: problem, solution.
-\newtheoremstyle{dotless}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{}{6pt}{}
-\theoremstyle{dotless}
-\newtheorem{problem}{}
-\renewcommand{\theproblem}{(\alph{problem})}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+% theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{exercise}{Exercise}
 
 % custom commands
+% sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\irrationals}{\reals\setminus{\rationals}}
+% absolute value and norm
 \DeclarePairedDelimiter\absolutevalue{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
@@ -23,8 +26,6 @@
 \author{Marcelo Bezerra}
 
 \bibliographystyle{plain}
-
-\includeonly{chp/01/sec/b}
 
 \begin{document}
 
@@ -34,10 +35,8 @@
 
 \mainmatter
 
-\chapter{Topological Spaces}\label{chp:topological-spaces}
-
-\include{chp/01/sec/a}
-\include{chp/01/sec/b}
+\input{chp/01}
+\input{chp/02}
 
 \backmatter
 
