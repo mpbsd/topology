@@ -4,18 +4,18 @@
 
 \begin{definition}
   A metric on a set \(X\) is a function \(d:X\times{X}\to\reals\) such that:
-  \begin{enumerate}
-    \item
-      \(d(x,y)=d(y,x)\),
-    \item
-      \(d(x,z)\leqslant{d(x,y)+d(y,z)}\),
-    \item
-      \(x=y\implies{d(x,y)=0}\),
-    \item
-      \(d(x,y)=0\implies{x=y}\),
-  \end{enumerate}
-  for all points \(x,y\) and \(z\) in \(X\).
+  \begin{align}
+      & d(x,y)=d(y,x),                  \label{axiom:metric-space-01} \\
+      & d(x,z)\leqslant{d(x,y)+d(y,z)}, \label{axiom:metric-space-02} \\
+      & x=y\implies{d(x,y)=0}, and      \label{axiom:metric-space-03} \\
+      & d(x,y)=0\implies{x=y},          \label{axiom:metric-space-04}
+  \end{align}
+  for all points \(x,y\) and \(z\) in \(X\). The pair \((X,d)\) is a metric
+  space.
 \end{definition}
+
+When no confusion seems possible, we may ommit the metric in \((X,d)\) and
+write simply `\(X\) is a metric space'.
 
 \[
   d(x,y)
