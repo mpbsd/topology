@@ -1,5 +1,18 @@
 \chapter{Metric Spaces}\label{chp:metric-spaces}
 
+\section{Normed linear spaces}
+
+\begin{definition}\label{def:normed-linear-spaces}
+  Let \(V\) be a vector space, either real or complex.
+\end{definition}
+
+If either \(\numberfield=\reals\) or \(\numberfield=\complexfield\), then, for
+all \(p\geqslant{1}\), the function
+\[
+  \norm<n>(p)[x]=\left(\sum_{i=1}^{n}\,\abs{x_{i}}^{p}\right)^{\frac{1}{p}}
+\]
+so defined for all \(x=(x_{1},\ldots,x_{n})\in\numberfield^{n}\), is a norm.
+
 \section{Metric Spaces}\label{sec:metric-spaces}
 
 \begin{definition}
@@ -65,15 +78,6 @@ of nonnegative reals.
   This is the most important metric space of all.
 \end{example}
 
-\subsection{Normed linear spaces}
-
-\[
-  \norm<n>(p)[z]=\left(\sum_{j=1}^{n}\,\abs{z_{j}}^{p}\right)^{\frac{1}{p}},
-\]
-
-\begin{example}[\(p\)-norm]\label{example:p-norm}
-  \(\norm(p)[u]\)
-\end{example}
 
 \subsection{Balls and spheres}
 
