@@ -1,0 +1,60 @@
+% number sets
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\complexfield}{\mathbb{C}}
+\newcommand{\nonnegativereals}{\reals_{+}}
+\newcommand{\irrationals}{\reals\setminus{\rationals}}
+
+% absolute value
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+%-----------------------------------------------------------------------%
+% norm and, more generally, p-norm                                      %
+%-----------------------------------------------------------------------%
+% \norm < space_dimension > ( positive_real_number ) [ vector ]         %
+%-----------------------------------------------------------------------%
+% All parameters are optional                                           %
+%-----------------------------------------------------------------------%
+% Usage:                                                                %
+%  - \norm                                                              %
+%  - \norm<n>                                                           %
+%  - \norm(p)                                                           %
+%  - \norm<n>(p)                                                        %
+%  - \norm[x]                                                           %
+%  - \norm<n>[x]                                                        %
+%  - \norm(p)[x]                                                        %
+%  - \norm<n>(p)[x]                                                     %
+%-----------------------------------------------------------------------%
+\NewDocumentCommand{\norm}{d<> d() d[]}{
+	\IfValueTF{#1}{
+		\IfValueTF{#2}{
+			\IfValueTF{#3}{
+				\lVert{#3}\rVert_{#2}^{#1}
+			}{
+				\lVert{\cdot}\rVert_{#2}^{#1}
+			}
+		}{
+			\IfValueTF{#3}{
+				\lVert{#3}\rVert^{#1}
+			}{
+				\lVert{\cdot}\rVert^{#1}
+			}
+		}
+	}{
+		\IfValueTF{#2}{
+			\IfValueTF{#3}{
+        \lVert{#3}\rVert_{#2}
+			}{
+        \lVert{\cdot}\rVert_{#2}
+			}
+		}{
+			\IfValueTF{#3}{
+				\lVert{#3}\rVert
+			}{
+				\lVert{\cdot}\rVert
+			}
+		}
+	}
+}

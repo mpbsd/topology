@@ -1,28 +1,8 @@
 \documentclass[a4paper,12pt,leqno]{book}
 
-% load packages
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage[english]{babel}
-\usepackage{enumerate}
-\usepackage{mathtools}
-
-% theorem environments
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{example}{Example}
-\newtheorem{exercise}{Exercise}
-
-% custom commands
-% sets
-\newcommand{\naturals}{\mathbb{N}}
-\newcommand{\integers}{\mathbb{Z}}
-\newcommand{\rationals}{\mathbb{Q}}
-\newcommand{\reals}{\mathbb{R}}
-\newcommand{\nonnegativereals}{\reals_{+}}
-\newcommand{\irrationals}{\reals\setminus{\rationals}}
-% absolute value and norm
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\input{pre/pkgs}
+\input{pre/cmds}
+\input{pre/thms}
 
 \title{A Course on Topology}
 \author{Marcelo Bezerra}
