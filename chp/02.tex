@@ -1,13 +1,12 @@
 \chapter{Metric Spaces}\label{chp:metric-spaces}
 
-\section{Normed linear spaces}
+\section{Linear Spaces}\label{sec:linear-spaces}
 
-In this section we closely follow the lines
-of~\cite{yet_another_proof_of_minkowskis_inequality}.
+\subsection{Norm}
 
 \begin{definition}\label{def:normed-linear-spaces}
-  Let \(V\) be a complex vector space. Then, a norm on \(V\) is real-valued
-  function \(N:V\to\reals\) such that:
+  Let \(V\) be a complex vector space. Then, a norm on \(V\) is a function
+  \(N:V\to\reals\) such that:
   \begin{enumerate}
     \item
       \(N(z)\geqslant{0}\) for all \(z\in{V}\);
@@ -21,17 +20,23 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   \end{enumerate}
 \end{definition}
 
+\subsection{The \(p\)-norm}
+
+In this section we closely follow the lines
+of~\cite{yet_another_proof_of_minkowskis_inequality}.
+
 \begin{definition}
-  Let \(p\geqslant{1}\). Then, the \(p\)-norm on \(\complexfield^{n}\) is given by
+  Let \(p\geqslant{1}\) be given. Then, the \(p\)-norm on \(\complexfield^{n}\)
+  is given by
   \[
     \norm<n>(p)[z]
     =
-    \left(\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}\right)^{\frac{1}{p}},
+    \sqrt[p]{\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}},
   \]
   for all \(z=(z_{1},\ldots,z_{n})\in\complexfield^{n}\).
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:on-norms-and-the-convexity-of-the-unitary-closed-ball}
   Let \(V\) be a complex vector space and \(N:V\to\reals\) be a real-valued
   function satisfying:
   \begin{enumerate}
@@ -71,57 +76,11 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   holds.
 \end{proof}
 
-To establish Minkowski's inequality, it thus suffices to show that the unit
-ball
-\(B^{n}_{p}=\left\{z\in\complexfield^{n}:\norm<n>(p)[z]\leqslant{1}\right\}\),
-is a convex subset of \(\complexfield^{n}\). We proceed by induction on \(n\).
-It's clear that the closed disk
-\(B^{1}_{p}=\left\{z\in\complexfield:\abs{z}\leqslant{1}\right\}\) is a convex
-subset of the complex plane. Next, suppose that the ball
-\[
-  B^{n}_{p}
-  =
-  \left\{z\in\complexfield^{n}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}\leqslant{1}\right\},
-\]
-is a convex subset of \(\complexfield^{n}\). To show that
-\[
-  B^{n+1}_{p}
-  =
-  \left\{z\in\complexfield^{n+1}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n+1}}^{p}\leqslant{1}\right\},
-\]
-is a convex subset of \(\complexfield^{n+1}\), we introduce the function
-\(h:B^{n}_{p}\to[0,1]\) given by
-\[
-	h(z)=\left(1-\abs{z_{1}}^{p}-\cdots-\abs{z_{n}}^{p}\right)^{\frac{1}{p}},
-\]
-for all \(z=(z_{1},\ldots,z_{n})\in{B^{n}_{p}}\). Our goal is to show that \(h\) is a concave function, that is, that
-\[
-	th(z)+(1-t)h(w)\leqslant{h(tz+(1-t)w)},
-\]
-for all \((t,z,w)\in{[0,1]\times{B^{n}_{p}}\times{B^{n}_{p}}}\), for once we
-are able to establish that \(h\) satisfies this inequality on the convex set
-\(B^{n}_{p}\), it will follow that
-\[
-	B^{n+1}_{p}
-  =
-  \left\{(z,\mu)\in{B^{n}\times\complexfield}:\abs{\mu}\leqslant{h(z)}\right\},
-\]
-is convex. To see this, suppose that
-\((t,(z,\mu),(w,\nu))\in{[0,1]\times{B^{n+1}_{p}}\times{B^{n+1}_{p}}}\) and
-observe that
-\[
-	\abs{t\mu+(1-t)\nu}
-  \leqslant{t\abs{\mu}+(1-t)\abs{\nu}}
-  \leqslant{th(z)+(1-t)h(w)}
-  \leqslant{h(tz+(1-t)w}),
-\]
-so that \(t(z,\mu)+(1-t)(w,\nu)\in{B^{n+1}_{p}}\).
-
-\begin{lemma}
+\begin{lemma}\label{lemma:concavity-of-compositions-of-concave-functions}
   Let \(S\) be a convex subset of a vector space, \(J\) an interval of the real
   line and \(g:S\to{J}\) a concave function. Then, the composition
   \(f\circ{g}:S\to\reals\) is also a concave function whenever \(f:J\to\reals\)
-  is a concave increasing function.
+  is concave and increasing.
 \end{lemma}
 
 \begin{proof}
@@ -135,32 +94,10 @@ so that \(t(z,\mu)+(1-t)(w,\nu)\in{B^{n+1}_{p}}\).
   concavity of \(g\) and the fact that \(f\) increases.
 \end{proof}
 
-Now, we realize the function \(h\) as the composite \(h=f\circ{g}\), where
-\[
-  g:B^{n}_{p}\to[0,1],
-  \quad{(z_{1},\ldots,z_{n})\mapsto{1-\abs{z_{1}}^{p}-\cdots-\abs{z_{n}}^{p}}},
-\]
-and
-\[
-  f:[0,1]\to\reals,\quad{x\mapsto{\sqrt[p]{x}}}.
-\]
-
-\begin{lemma}
-  The function
-  \[
-    f:[0,1]\to\reals,\quad{x\mapsto\sqrt[p]{x}},
-  \]
-  is concave and increasing.
-\end{lemma}
-
-\begin{proof}
-  An exercise.
-\end{proof}
-
-\begin{lemma}
+\begin{lemma}\label{lemma:concavity-of-sums-of-concave-functions}
   Let
   \[
-    g_{i}:V_{i}\to\reals\quad{(i=1,\ldots,n)},
+    g_{i}:V_{i}\to\reals\quad{\left(i=1,\ldots,n\right)},
   \]
   be concave functions and \(S\subset{V_{1}\times\cdots\times{V_{n}}}\) be a
   convex set. Then, for any constant \(c\in\reals\), the function
@@ -187,17 +124,84 @@ and
   \(z=(z_{1},\ldots,z_{n})\) and \(w=(w_{1},\ldots,w_{n})\).
 \end{proof}
 
-\begin{lemma}
-  The function
-  \[
+\begin{lemma}\label{lemma:two-concave-functions}
+  The functions
+  \begin{equation}\label{eq:f-function}
+    f:[0,1]\to\reals,\quad{x\mapsto{\sqrt[p]{x}}},
+  \end{equation}
+  and
+  \begin{equation}\label{eq:k-function}
     k:[0,\infty)\to\reals,\quad{x\mapsto{-x^{p}}},
-  \]
-  is concave and decreasing.
+  \end{equation}
+  are both concave, \(f\) is increasing and \(k\) is deacresing.
 \end{lemma}
 
 \begin{proof}
   An exercise.
 \end{proof}
+
+\begin{proposition}\label{proposition:the-p-norm-is-in-fact-a-norm}
+  \(\norm<n>(p)\) is a norm on \(\complexfield^{n}\), for every
+  \(p\geqslant{1}\).
+\end{proposition}
+
+\begin{proof}
+To establish Minkowski's inequality, it thus suffices to show that the unit
+ball
+\(B^{n}_{p}=\left\{z\in\complexfield^{n}:\norm<n>(p)[z]\leqslant{1}\right\}\)
+is a convex subset of \(\complexfield^{n}\). We proceed by induction on \(n\).
+It's clear that the closed disk
+\(B^{1}_{p}=\left\{z\in\complexfield:\abs{z}\leqslant{1}\right\}\) is a convex
+subset of the complex plane. Next, suppose that the ball
+\[
+  B^{n}_{p}
+  =
+  \left\{z\in\complexfield^{n}:\sum_{i=1}^{n}\abs{z_{i}}^{p}\leqslant{1}\right\},
+\]
+is a convex subset of \(\complexfield^{n}\). To show that
+\[
+  B^{n+1}_{p}
+  =
+  \left\{z\in\complexfield^{n+1}:\sum_{i=1}^{n+1}\abs{z_{i}}^{p}\leqslant{1}\right\},
+\]
+is a convex subset of \(\complexfield^{n+1}\), we introduce the function
+\begin{equation}\label{eq:h-function}
+  h:B^{n}_{p}\to{[0,1]},
+  \quad{(z_{1},\ldots,z_{n})\mapsto\left(1-\sum_{i=1}^{n}\abs{z_{i}}^{p}\right)^{\frac{1}{p}}}.
+\end{equation}
+Our goal is to show that \(h\) is a concave function, that is, that
+\begin{equation}\label{eq:h-is-concave}
+	th(z)+(1-t)h(w)\leqslant{h(tz+(1-t)w)},
+\end{equation}
+for all \((t,z,w)\in{[0,1]\times{B^{n}_{p}}\times{B^{n}_{p}}}\). Once we are
+able to establish that \(h\) satisfies inequality~\eqref{eq:h-is-concave} on
+the convex set \(B^{n}_{p}\), it will follow that
+\[
+	B^{n+1}_{p}
+  =
+  \left\{(z,\mu)\in{B^{n}\times\complexfield}:\abs{\mu}\leqslant{h(z)}\right\},
+\]
+is convex. To see this, suppose that
+\((t,(z,\mu),(w,\nu))\in{[0,1]\times{B^{n+1}_{p}}\times{B^{n+1}_{p}}}\) and
+observe that
+\[
+	\abs{t\mu+(1-t)\nu}
+  \leqslant{t\abs{\mu}+(1-t)\abs{\nu}}
+  \leqslant{th(z)+(1-t)h(w)}
+  \leqslant{h(tz+(1-t)w}),
+\]
+so that \(t(z,\mu)+(1-t)(w,\nu)\in{B^{n+1}_{p}}\).
+
+Now, we realize the function~\eqref{eq:h-function} as the composite
+\(h=f\circ{g}\), where
+\begin{equation}\label{eq:g-function}
+  g:B^{n}_{p}\to[0,1],
+  \quad{(z_{1},\ldots,z_{n})\mapsto{1-\abs{z_{1}}^{p}-\cdots-\abs{z_{n}}^{p}}},
+\end{equation}
+and
+\begin{equation}\label{eq:f-function}
+  f:[0,1]\to\reals,\quad{x\mapsto{\sqrt[p]{x}}}.
+\end{equation}
 
 In our setting, we put \(c=1\) and
 \[
@@ -220,6 +224,7 @@ the \(g_{1},\ldots,g_{n}\) are indeed concave.
   &=
   g_{i}\left(tz_{i}+(1-t)w_{i}\right),
 \end{align*}
+\end{proof}
 
 \section{Metric Spaces}\label{sec:metric-spaces}
 
