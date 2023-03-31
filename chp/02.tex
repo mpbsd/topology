@@ -2,6 +2,9 @@
 
 \section{Normed linear spaces}
 
+In this section we closely follow the lines
+of~\cite{yet_another_proof_of_minkowskis_inequality}.
+
 \begin{definition}\label{def:normed-linear-spaces}
   Let \(V\) be a complex vector space. Then, a norm on \(V\) is real-valued
   function \(N:V\to\reals\) such that:
@@ -16,6 +19,16 @@
     \item
       \(N(v+w)\leqslant{N(v)+N(w)}\) for all \((v,w)\in{V\times{V}}\).
   \end{enumerate}
+\end{definition}
+
+\begin{definition}[\(p\)-norm]
+  Let \(p\leqslant{1}\). Then, the \(p\)-norm on \(\complexfield^{n}\) is given by
+  \[
+    \norm<n>(p)[z]
+    =
+    \left(\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}\right)^{\frac{1}{p}},
+  \]
+  for all \(z=(z_{1},\ldots,z_{n})\in\complexfield^{n}\).
 \end{definition}
 
 \begin{lemma}
@@ -57,6 +70,52 @@
   \]
   holds.
 \end{proof}
+
+To establish Minkowski's inequality, it thus suffices to show that the unit
+ball
+\(B^{n}_{p}=\left\{z\in\complexfield^{n}:\norm<n>(p)[z]\leqslant{1}\right\}\),
+is a convex subset of \(\complexfield^{n}\). We proceed by induction on \(n\).
+It's clear that the closed disk
+\(B^{1}_{p}=\left\{z\in\complexfield:\abs{z}\leqslant{1}\right\}\) is a convex
+subset of the complex plane. Next, suppose that the ball
+\[
+  B^{n}_{p}
+  =
+  \left\{z\in\complexfield^{n}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}\leqslant{1}\right\},
+\]
+is a convex subset of \(\complexfield^{n}\). To show that
+\[
+  B^{n+1}_{p}
+  =
+  \left\{z\in\complexfield^{n+1}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}+\abs{z_{n+1}}^{p}\leqslant{1}\right\},
+\]
+is a convex subset of \(\complexfield^{n+1}\), we introduce the function
+\(h:B^{n}_{p}\to[0,1]\) given by
+\[
+	h(z)=\left(1-\abs{z_{1}}^{p}-\cdots-\abs{z_{n}}^{p}\right)^{\frac{1}{p}},
+\]
+for all \(z=(z_{1},\ldots,z_{n})\in{B^{n}_{p}}\). Our goal is to show that \(h\) is a concave function, that is, that
+\[
+	th(z)+(1-t)h(w)\leqslant{h(tz+(1-t)w)},
+\]
+for all \((t,z,w)\in{[0,1]\times{B^{n}_{p}}\times{B^{n}_{p}}}\), for once we
+are able to establish that \(h\) satisfies this inequality on the convex set
+\(B^{n}_{p}\), it will follow that
+\[
+	B^{n+1}_{p}
+  =
+  \left\{(z,\mu)\in{B^{n}\times\complexfield}:\abs{\mu}\leqslant{h(z)}\right\},
+\]
+is convex. To see this, suppose that
+\((t,(z,\mu),(w,\nu))\in{[0,1]\times{B^{n+1}_{p}}\times{B^{n+1}_{p}}}\) and
+observe that
+\[
+	\abs{t\mu+(1-t)\nu}
+  \leqslant{t\abs{\mu}+(1-t)\abs{\nu}}
+  \leqslant{th(z)+(1-t)h(w)}
+  \leqslant{h(tz+(1-t)w}),
+\]
+so that \(t(z,\mu)+(1-t)(w,\nu)\in{B^{n+1}_{p}}\).
 
 \section{Metric Spaces}\label{sec:metric-spaces}
 
