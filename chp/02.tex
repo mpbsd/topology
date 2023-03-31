@@ -3,15 +3,60 @@
 \section{Normed linear spaces}
 
 \begin{definition}\label{def:normed-linear-spaces}
-  Let \(V\) be a vector space, either real or complex.
+  Let \(V\) be a complex vector space. Then, a norm on \(V\) is real-valued
+  function \(N:V\to\reals\) such that:
+  \begin{enumerate}
+    \item
+      \(N(v)\geqslant{0}\) for all \(v\in{V}\);
+    \item
+      \(N(v)=0\iff{v=0}\);
+    \item
+      \(N(\lambda{v})=\abs{\lambda}N(v)\) for all
+      \((\lambda,v)\in\complexfield\times{V}\);
+    \item
+      \(N(v+w)\leqslant{N(v)+N(w)}\) for all \((v,w)\in{V\times{V}}\).
+  \end{enumerate}
 \end{definition}
 
-If either \(\numberfield=\reals\) or \(\numberfield=\complexfield\), then, for
-all \(p\geqslant{1}\), the function
-\[
-  \norm<n>(p)[x]=\left(\sum_{i=1}^{n}\,\abs{x_{i}}^{p}\right)^{\frac{1}{p}}
-\]
-so defined for all \(x=(x_{1},\ldots,x_{n})\in\numberfield^{n}\), is a norm.
+\begin{lemma}
+  Let \(V\) be a complex vector space and \(N:V\to\reals\) be a real-valued
+  function satisfying:
+  \begin{enumerate}
+    \item
+      \(N(v)\geqslant{0}\) for all \(v\in{V}\);
+    \item
+      \(N(v)=0\iff{v=0}\);
+    \item
+      \(N(\lambda{v})=\abs{\lambda}N(v)\) for all
+      \((\lambda,v)\in\complexfield\times{V}\).
+  \end{enumerate}
+  Then, \(N\) is a norm on \(V\) whenever the unit ball
+  \(\left\{v\in{V}:N(v)\leqslant{1}\right\}\) is a convex set.
+\end{lemma}
+
+\begin{proof}
+  Let \(v\) and \(w\) be nonzero vectors in \(V\). Then, \(v/N(v)\) and
+  \(w/N(w)\) are unit vectors and as such their convex combination
+  \[
+    \frac{v+w}{N(v)+N(w)}
+    =
+    \frac{N(v)}{N(v)+N(w)}\frac{v}{N(v)}
+    +
+    \frac{N(w)}{N(v)+N(w)}\frac{w}{N(w)}
+    ,
+  \]
+  lies in the unit ball. Therefore, we get that
+  \[
+    \frac{N(v+w)}{N(v)+N(w)}
+    =
+    N\left(\frac{v+w}{N(v)+N(w)}\right)\leqslant{1},
+  \]
+  from which it then follows that the triangle inequality
+  \[
+    N(v+w)\leqslant{N(v)+N(w)},
+  \]
+  holds.
+\end{proof}
 
 \section{Metric Spaces}\label{sec:metric-spaces}
 
