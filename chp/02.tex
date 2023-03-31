@@ -10,19 +10,19 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   function \(N:V\to\reals\) such that:
   \begin{enumerate}
     \item
-      \(N(v)\geqslant{0}\) for all \(v\in{V}\);
+      \(N(z)\geqslant{0}\) for all \(z\in{V}\);
     \item
-      \(N(v)=0\iff{v=0}\);
+      \(N(z)=0\iff{z=0}\);
     \item
-      \(N(\lambda{v})=\abs{\lambda}N(v)\) for all
-      \((\lambda,v)\in\complexfield\times{V}\);
+      \(N(\lambda{z})=\abs{\lambda}N(z)\) for all
+      \((\lambda,z)\in\complexfield\times{V}\);
     \item
-      \(N(v+w)\leqslant{N(v)+N(w)}\) for all \((v,w)\in{V\times{V}}\).
+      \(N(z+w)\leqslant{N(z)+N(w)}\) for all \((z,w)\in{V\times{V}}\).
   \end{enumerate}
 \end{definition}
 
-\begin{definition}[\(p\)-norm]
-  Let \(p\leqslant{1}\). Then, the \(p\)-norm on \(\complexfield^{n}\) is given by
+\begin{definition}
+  Let \(p\geqslant{1}\). Then, the \(p\)-norm on \(\complexfield^{n}\) is given by
   \[
     \norm<n>(p)[z]
     =
@@ -36,37 +36,37 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   function satisfying:
   \begin{enumerate}
     \item
-      \(N(v)\geqslant{0}\) for all \(v\in{V}\);
+      \(N(z)\geqslant{0}\) for all \(z\in{V}\);
     \item
-      \(N(v)=0\iff{v=0}\);
+      \(N(z)=0\iff{z=0}\);
     \item
-      \(N(\lambda{v})=\abs{\lambda}N(v)\) for all
-      \((\lambda,v)\in\complexfield\times{V}\).
+      \(N(\lambda{z})=\abs{\lambda}N(z)\) for all
+      \((\lambda,z)\in\complexfield\times{V}\).
   \end{enumerate}
   Then, \(N\) is a norm on \(V\) whenever the unit ball
-  \(\left\{v\in{V}:N(v)\leqslant{1}\right\}\) is a convex set.
+  \(\left\{z\in{V}:N(z)\leqslant{1}\right\}\) is a convex set.
 \end{lemma}
 
 \begin{proof}
-  Let \(v\) and \(w\) be nonzero vectors in \(V\). Then, \(v/N(v)\) and
+  Let \(z\) and \(w\) be nonzero vectors in \(V\). Then, \(z/N(z)\) and
   \(w/N(w)\) are unit vectors and as such their convex combination
   \[
-    \frac{v+w}{N(v)+N(w)}
+    \frac{z+w}{N(z)+N(w)}
     =
-    \frac{N(v)}{N(v)+N(w)}\frac{v}{N(v)}
+    \frac{N(z)}{N(z)+N(w)}\frac{z}{N(z)}
     +
-    \frac{N(w)}{N(v)+N(w)}\frac{w}{N(w)}
+    \frac{N(w)}{N(z)+N(w)}\frac{w}{N(w)}
     ,
   \]
   lies in the unit ball. Therefore, we get that
   \[
-    \frac{N(v+w)}{N(v)+N(w)}
+    \frac{N(z+w)}{N(z)+N(w)}
     =
-    N\left(\frac{v+w}{N(v)+N(w)}\right)\leqslant{1},
+    N\left(\frac{z+w}{N(z)+N(w)}\right)\leqslant{1},
   \]
   from which it then follows that the triangle inequality
   \[
-    N(v+w)\leqslant{N(v)+N(w)},
+    N(z+w)\leqslant{N(z)+N(w)},
   \]
   holds.
 \end{proof}
@@ -87,7 +87,7 @@ is a convex subset of \(\complexfield^{n}\). To show that
 \[
   B^{n+1}_{p}
   =
-  \left\{z\in\complexfield^{n+1}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}+\abs{z_{n+1}}^{p}\leqslant{1}\right\},
+  \left\{z\in\complexfield^{n+1}:\abs{z_{1}}^{p}+\cdots+\abs{z_{n+1}}^{p}\leqslant{1}\right\},
 \]
 is a convex subset of \(\complexfield^{n+1}\), we introduce the function
 \(h:B^{n}_{p}\to[0,1]\) given by
@@ -116,6 +116,110 @@ observe that
   \leqslant{h(tz+(1-t)w}),
 \]
 so that \(t(z,\mu)+(1-t)(w,\nu)\in{B^{n+1}_{p}}\).
+
+\begin{lemma}
+  Let \(S\) be a convex subset of a vector space, \(J\) an interval of the real
+  line and \(g:S\to{J}\) a concave function. Then, the composition
+  \(f\circ{g}:S\to\reals\) is also a concave function whenever \(f:J\to\reals\)
+  is a concave increasing function.
+\end{lemma}
+
+\begin{proof}
+  \begin{align*}
+    t(f\circ{g})(z)+(1-t)(f\circ{g})(w)
+    &\leqslant{f(tg(z)+(1-t)g(w))}\\
+    &\leqslant{(f\circ{g})(tz+(1-t)w)},
+  \end{align*}
+  for all \((t,z,w)\in{[0,1]\times{S}\times{S}}\), where the first inequality
+  follows from the concavity of \(f\) and the second one follows from the
+  concavity of \(g\) and the fact that \(f\) increases.
+\end{proof}
+
+Now, we realize the function \(h\) as the composite \(h=f\circ{g}\), where
+\[
+  g:B^{n}_{p}\to[0,1],
+  \quad{(z_{1},\ldots,z_{n})\mapsto{1-\abs{z_{1}}^{p}-\cdots-\abs{z_{n}}^{p}}},
+\]
+and
+\[
+  f:[0,1]\to\reals,\quad{x\mapsto{\sqrt[p]{x}}}.
+\]
+
+\begin{lemma}
+  The function
+  \[
+    f:[0,1]\to\reals,\quad{x\mapsto\sqrt[p]{x}},
+  \]
+  is concave and increasing.
+\end{lemma}
+
+\begin{proof}
+  An exercise.
+\end{proof}
+
+\begin{lemma}
+  Let
+  \[
+    g_{i}:V_{i}\to\reals\quad{(i=1,\ldots,n)},
+  \]
+  be concave functions and \(S\subset{V_{1}\times\cdots\times{V_{n}}}\) be a
+  convex set. Then, for any constant \(c\in\reals\), the function
+  \[
+    g:S\to\reals,\quad{(z_{1},\ldots,z_{n})\mapsto{c+\sum_{i=1}^{n}g_{i}(z_{i})}},
+  \]
+  is concave.
+\end{lemma}
+
+\begin{proof}
+  As a matter of fact, we have that
+  \begin{align*}
+    t(g-c)(z)+(1-t)(g-c)(w)
+    &=
+    \sum_{i=1}^{n}\left(tg_{i}(z_{i})+(1-t)g_{i}(w_{i})\right)
+    \\
+    &\leqslant
+    \sum_{i=1}^{n}g_{i}\left(tz_{i}+(1-t)w_{i}\right)
+    \\
+    &=
+    (g-c)\left(tz+(1-t)w\right),
+  \end{align*}
+  for all \((t,z,w)\in{[0,1]\times{S}\times{S}}\), where
+  \(z=(z_{1},\ldots,z_{n})\) and \(w=(w_{1},\ldots,w_{n})\).
+\end{proof}
+
+\begin{lemma}
+  The function
+  \[
+    k:[0,\infty)\to\reals,\quad{x\mapsto{-x^{p}}},
+  \]
+  is concave and decreasing.
+\end{lemma}
+
+\begin{proof}
+  An exercise.
+\end{proof}
+
+In our setting, we put \(c=1\) and
+\[
+  g_{i}:\complexfield\to\reals,\quad{z\mapsto{k(\abs{z})=-\abs{z}^{p}}},
+\]
+for all \(i\in\{1,\ldots,n\}\). It thus remains only to check that
+the \(g_{1},\ldots,g_{n}\) are indeed concave.
+
+\begin{align*}
+  tg_{i}(z_{i})+(1-t)g_{i}(w_{i})
+  &=
+  tk\left(\abs{z_{i}}\right)+(1-t)k\left(\abs{w_{i}}\right)
+  \\
+  &\leqslant
+  k\left(t\abs{z_{i}}+(1-t)\abs{w_{i}}\right)
+  \\
+  &\leqslant
+  k\left(\abs{tz_{i}+(1-t)w_{i}}\right)
+  \\
+  &=
+  g_{i}\left(tz_{i}+(1-t)w_{i}\right),
+\end{align*}
 
 \section{Metric Spaces}\label{sec:metric-spaces}
 
