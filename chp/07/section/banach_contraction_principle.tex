@@ -1,0 +1,106 @@
+\section{Banach's contraction principle}
+
+This section closely follows~\cite{a_simple_proof_of_the_banach_contraction_principle}.
+
+\begin{definition}\label{def:contracting-mapping}
+  Let \(X\) be a metric space. Then, a contraction on \(X\) is a mapping
+  \(f:X\to{X}\) such that there exists a real constant \(0<K<1\) with
+  \[
+    d(f(x_{1}),f(x_{2}))\leqslant{Kd(x_{1},x_{2})},
+  \]
+  for all \(x_{1},x_{2}\in{X}\). The constant \(K\) is a contracting constant
+  for \(f\).
+\end{definition}
+
+\begin{proposition}[Fundamental inequality]
+  Let \(f:X\to{X}\) be a contraction with contracting constant \(K\). Then, we
+  have that
+  \begin{equation}\label{eq:fundamental-contraction-inequality}
+    (1-K)d(x_{1},x_{2})\leqslant{d(x_{1},f(x_{2}))+d(x_{2},f(x_{2}))},
+  \end{equation}
+  for all \(x_{1},x_{2}\in{X}\).
+\end{proposition}
+
+\begin{proof}
+  By the triangle inequality, we have that
+  \[
+    d(x_{1},x_{2})\leqslant{d(x_{1},f(x_{1}))+d(f(x_{1}),f(x_{2}))+d(f(x_{2}),x_{2})},
+  \]
+  from which it then follows that
+  \[
+    (1-K)d(x_{1},x_{2})\leqslant{d(x_{1},f(x_{1}))+d(x_{2},f(x_{2}))},
+  \]
+  for all \(x_{1},x_{2}\in{X}\), as we claimed.
+\end{proof}
+
+\begin{corollary}
+  A contraction has at most one fixed point.
+\end{corollary}
+
+\begin{proof}
+  It follows from~\eqref{eq:fundamental-contraction-inequality} that if
+  \(x_{1},x_{2}\in{X}\) are fixed points of a contraction \(f:X\to{X}\) with
+  constant \(K\), we then get that
+  \[
+    (1-K)d(x_{1},x_{2})
+    \leqslant{d(x_{1},f(x_{1}))+d(x_{2},f(x_{2}))}
+    \leqslant{d(x_{1},x_{1})+d(x_{2},x_{2})}
+    =0,
+  \]
+  and because \(0<K<1\), we further get \(d(x_{1},x_{2})=0\).
+\end{proof}
+
+\begin{proposition}\label{proposition:the-iterates-of-any-point-under-a-contraction-is-always-a-cauchy-sequence}
+  Let \(f:X\to{X}\) be a contraction with constant \(K\). Then, the sequence of
+  iterates under \(f\) of any point \(x\) in \(X\), that is, the sequence
+  \[
+    x_{1}=x,\quad{x_{n+1}=f(x_{n})},
+  \]
+  is always a Cauchy sequence in \(X\).
+\end{proposition}
+
+\begin{proof}
+  Let \(x\in{X}\) be given. Then, we get that
+  \[
+    \forall{m}\in\naturals:
+    \quad{x_{m+1}=f^{m}(x)},
+  \]
+  as well as
+  \[
+    \forall{m}\in\naturals:
+    \quad{d(f^{m}(x),f^{m+n}(x))\leqslant{K^{m}}d(x,f^{n}(x))}
+    \quad{(\forall{n}\in\naturals)},
+  \]
+  by induction on \(m\). It follows that
+  \begin{equation}
+    \begin{split}
+      (1-K)d(x_{m},x_{n})
+      &=
+      (1-K)d(f^{m-1}(x),f^{n-1}(x))
+      \\
+      &\leqslant{d(f^{m-1}(x),f^{m}(x))+d(f^{n-1}(x),f^{n}(x))}
+      \\
+      &\leqslant{\left(K^{m-1}+K^{n-1}\right)d(x,f(x))},
+    \end{split}
+  \end{equation}
+  for all \(m,n\in\naturals\), once again
+  by~\eqref{eq:fundamental-contraction-inequality}. Thus,
+  \(d(x_{m},x_{n})\to{0}\) as \(m,n\to\infty\).
+\end{proof}
+
+\begin{corollary}\label{corollary:banachs-contraction-principle}
+  Let \(X\) be a complete metric space. Then, any contraction \(f:X\to{X}\) has
+  exactly one fixed point, say \(y\in{X}\). Moreover, if \(x\in{X}\) is any
+  point, then we have \(y=\lim\limits_{m\to\infty}f^{m}(x)\).
+\end{corollary}
+
+\begin{proof}
+  The iterates \(x_{m+1}=f^{m}(x)\) of any point \(x\in{X}\) through \(f\) form
+  a Cauchy sequence in the complete metric space \(X\), by
+  Proposition~\ref{proposition:the-iterates-of-any-point-under-a-contraction-is-always-a-cauchy-sequence}.
+  So, there does exist a \(y\in{X}\) with which to write
+  \(y=\lim\limits_{m\to\infty}f^{m}(x)\). Finally, notice that
+  \[
+    f(y)=f\left(\lim\limits_{m\to\infty}f^{m}(x)\right)=\lim\limits_{m\to\infty}f^{m+1}(x)=y.
+  \]
+\end{proof}
