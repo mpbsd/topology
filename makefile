@@ -17,6 +17,7 @@ final: main.tex bib/main.bib
 	$(TEX_ENGINE) main
 	$(BIB_ENGINE) main
 	$(TEX_ENGINE) main
+	$(TEX_ENGINE) main
 	$(DOC_VIEWER) main.pdf
 
 clean:
