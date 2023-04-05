@@ -7,14 +7,14 @@
   \(\norm:V\to\reals\) such that:
   \begin{enumerate}
     \item
-      \(\norm[z]\geqslant{0}\) for all \(z\in{V}\);
+      \(\norm(z)\geqslant{0}\) for all \(z\in{V}\);
     \item
-      \(\norm[z]=0\iff{z=0}\);
+      \(\norm(z)=0\iff{z=0}\);
     \item
-      \(\norm[\lambda{z}]=\abs{\lambda}\norm[z]\) for all
+      \(\norm(\lambda{z})=\abs{\lambda}\norm(z)\) for all
       \((\lambda,z)\in\complexfield\times{V}\);
     \item
-      \(\norm[z+w]\leqslant{\norm[z]+\norm[w]}\) for all
+      \(\norm(z+w)\leqslant{\norm(z)+\norm(w)}\) for all
       \((z,w)\in{V\times{V}}\).
   \end{enumerate}
   A normed space is a pair \((V,\norm)\) where \(V\) is vector space and
@@ -30,7 +30,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   Let \(p\geqslant{1}\) be given. Then, the \(p\)-norm on \(\complexfield^{n}\)
   is given by
   \[
-    \norm<n>(p)[z]
+    \norm<n>[p](z)
     =
     \sqrt[p]{\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}},
   \]
@@ -42,37 +42,37 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   function satisfying:
   \begin{enumerate}
     \item
-      \(\norm[z]\geqslant{0}\) for all \(z\in{V}\);
+      \(\norm(z)\geqslant{0}\) for all \(z\in{V}\);
     \item
-      \(\norm[z]=0\iff{z=0}\);
+      \(\norm(z)=0\iff{z=0}\);
     \item
-      \(\norm[\lambda{z}]=\abs{\lambda}\norm[z]\) for all
+      \(\norm(\lambda{z})=\abs{\lambda}\norm(z)\) for all
       \((\lambda,z)\in\complexfield\times{V}\).
   \end{enumerate}
   Then, \(\norm\) is a norm on \(V\) whenever the unit ball
-  \(\left\{z\in{V}:\norm[z]\leqslant{1}\right\}\) is a convex set.
+  \(\left\{z\in{V}:\norm(z)\leqslant{1}\right\}\) is a convex set.
 \end{lemma}
 
 \begin{proof}
-  Let \(z\) and \(w\) be nonzero vectors in \(V\). Then, \(z/\norm[z]\) and
-  \(w/\norm[w]\) are unit vectors and their convex combination
+  Let \(z\) and \(w\) be nonzero vectors in \(V\). Then, \(z/\norm(z)\) and
+  \(w/\norm(w)\) are unit vectors and their convex combination
   \[
-    \frac{z+w}{\norm[z]+\norm[w]}
+    \frac{z+w}{\norm(z)+\norm(w)}
     =
-    \frac{\norm[z]}{\norm[z]+\norm[w]}\frac{z}{\norm[z]}
+    \frac{\norm(z)}{\norm(z)+\norm(w)}\frac{z}{\norm(z)}
     +
-    \frac{\norm[w]}{\norm[z]+\norm[w]}\frac{w}{\norm[w]}
+    \frac{\norm(w)}{\norm(z)+\norm(w)}\frac{w}{\norm(w)}
     ,
   \]
   lies in the unit ball. Therefore, we get that
   \[
-    \frac{\norm[z+w]}{\norm[z]+\norm[w]}
+    \frac{\norm(z+w)}{\norm(z)+\norm(w)}
     =
-    N\left(\frac{z+w}{\norm[z]+\norm[w]}\right)\leqslant{1},
+    N\left(\frac{z+w}{\norm(z)+\norm(w)}\right)\leqslant{1},
   \]
   from which it then follows that the triangle inequality
   \[
-    \norm[z+w]\leqslant{\norm[z]+\norm[w]},
+    \norm(z+w)\leqslant{\norm(z)+\norm(w)},
   \]
   holds.
 \end{proof}
@@ -142,7 +142,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
 \end{proof}
 
 \begin{proposition}\label{proposition:the-p-norm-is-in-fact-a-norm}
-  \(\norm<n>(p)\) is a norm on \(\complexfield^{n}\), for every
+  \(\norm<n>[p]\) is a norm on \(\complexfield^{n}\), for every
   \(p\geqslant{1}\).
 \end{proposition}
 
@@ -152,7 +152,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   \[
     B^{n}_{p}
     =
-    \left\{z\in\complexfield^{n}:\norm<n>(p)[z]\leqslant{1}\right\},
+    \left\{z\in\complexfield^{n}:\norm<n>[p](z)\leqslant{1}\right\},
   \]
   is a convex subset of \(\complexfield^{n}\). We proceed by induction on
   \(n\). It's clear that the closed disk
@@ -233,7 +233,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
 \begin{definition}
   The \(\infty\)-norm on \(\complexfield^{n}\) is the function given by
   \[
-    \norm<n>(\infty)[z]
+    \norm<n>[\infty](z)
     =
     \max\limits_{1\leqslant{i}\leqslant{n}}\abs{z_{i}},
   \]
@@ -241,7 +241,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
 \end{definition}
 
 \begin{proposition}
-  \(\norm<n>(p)\) and \(\norm<n>(\infty)\) are, for each \(p\geqslant{1}\),
+  \(\norm<n>[p]\) and \(\norm<n>[\infty]\) are, for each \(p\geqslant{1}\),
   equivalent norms on \(\complexfield^{n}\).
 \end{proposition}
 
@@ -254,18 +254,18 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   \]
   that is, that
   \begin{equation}\label{eq:equivalence-of-p-and-infty-norms}
-    \norm<n>(\infty)[z]
+    \norm<n>[\infty](z)
     \leqslant
-    \norm<n>(p)[z]
+    \norm<n>[p](z)
     \leqslant
-    \sqrt[p]{n}\norm<n>(\infty)[z],
+    \sqrt[p]{n}\norm<n>[\infty](z),
   \end{equation}
   for all \(z=(z_{1},\ldots,z_{n})\in\complexfield^{n}\) and \(p\geqslant{1}\),
   which proves the proposition. At this point though, we think it's worth
   noticing that it follows from
-  equation~\eqref{eq:equivalence-of-p-and-infty-norms} above that
+  equation~\eqref{eq:equivalence-of-p-and-infty-norms} that
   \[
-    \lim\limits_{p\to\infty}\norm<n>(p)[z]=\norm<n>(\infty)[z],
+    \lim\limits_{p\to\infty}\norm<n>[p](z)=\norm<n>[\infty](z),
   \]
   for each \(z\in\complexfield^{n}\), since
   \(\lim\limits_{p\to\infty}\sqrt[p]{n}=1\).

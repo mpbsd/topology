@@ -14,7 +14,7 @@
 %-----------------------------------------------------------------------%
 % norm and, more generally, p-norm                                      %
 %-----------------------------------------------------------------------%
-% \norm < space_dimension > ( positive_real_number ) [ vector ]         %
+% \norm < space_dimension > [ positive_real_number ] ( vector )         %
 %-----------------------------------------------------------------------%
 % All parameters are optional                                           %
 %-----------------------------------------------------------------------%
@@ -28,7 +28,7 @@
 %  - \norm(p)[x]                                                        %
 %  - \norm<n>(p)[x]                                                     %
 %-----------------------------------------------------------------------%
-\NewDocumentCommand{\norm}{d<> d() d[]}{
+\NewDocumentCommand{\norm}{d<> d[] d()}{
 	\IfValueTF{#1}{
 		\IfValueTF{#2}{
 			\IfValueTF{#3}{
