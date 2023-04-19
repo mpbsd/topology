@@ -8,13 +8,13 @@
       & x=y\implies{d(x,y)=0}, and      \label{axiom:metric-space-03} \\
       & d(x,y)=0\implies{x=y},          \label{axiom:metric-space-04}
   \end{align}
-  for all points \(x,y\) and \(z\) in \(X\). The pair \((X,d)\) is a metric
-  space.
+  for all points \(x,y\) and \(z\) in \(X\). A metric space is a pair \((X,d)\)
+  where \(d\) is a metric on \(X\).
 \end{definition}
 
 We may omit the metric in \((X,d)\) and simply write `\(X\) is a metric space'
 if no confusion seems possible as to which metric is being taken on top of
-\(X\). Notice that we have
+\(X\). Notice that
 \[
   d(x,y)
   =
@@ -33,19 +33,18 @@ into the set
   =
   \left\{x\in\reals:x\geqslant{0}\right\},
 \]
-of nonnegative reals.
+of nonnegative real numbers.
 
 \subsection{Examples}
 
 \begin{example}\label{example:the-0-1-metric}
-  Let \(X\) be a non-empty set. Then, the function \(d:X\times{X}\to\reals\)
-  given by:
+  Let \(X\) be a non-empty set. Then, the function
   \begin{equation*}
-    d(x,y)=
+    X\times{X}\to\reals,\quad{(x,y)\mapsto{d(x,y)}}=
     \left\{
       \begin{array}{lll}
-        1 & \text{if} & x=y, \\
-        0 & \text{if} & x\neq{y}.
+        1, & \text{if} & x=y, \\
+        0, & \text{if} & x\neq{y},
       \end{array}
     \right.
   \end{equation*}
@@ -64,4 +63,64 @@ of nonnegative reals.
   This is the most important metric space of all.
 \end{example}
 
+\begin{example}[Normed linear spaces]\label{example:normed-linear-spaces}
+  Let \(\field{F}\) be one of the following number fields, either
+  \(\field{F}=\reals\) or \(\field{F}=\complexfield\), and let \(E\) be a
+  vector space over \(\field{F}\). Then, a norm on \(E\) is a real valued
+  function
+  \[
+    \norm:E\to\reals,\quad{x\mapsto\norm(x)},
+  \]
+  such that
+  \begin{align}
+    &\norm(x)=0\implies{x=0},               \\
+    &\norm(\alpha{x})=\abs{\alpha}\norm(x), \\
+    &\norm(x+y)\leqslant{\norm(x)+\norm(y)},
+  \end{align}
+  for all \((\alpha,x,y)\in\reals\times{E}\times{E}\). A normed linear space is
+  a pair \((E,\norm)\) where \(E\) is a vector space (over \(\field{F}\)) and
+  \(\norm\) is a norm on \(E\). A normed linear space \((E,\norm)\) is always a
+  metric space with respect to the metric (prove it!)
+  \[
+    E\times{E}\to\reals,\quad{(x,y)\mapsto{d(x,y)=\norm(x-y)}}.
+  \]
+  Notice that \(\norm(x)=d(x,0)\) for all \(x\in{E}\).
+\end{example}
+
+\begin{example}[Inner product spaces]
+  Let \(E\) be a real vector space. An inner product on \(E\) is a function
+  \[
+    E\times{E}\to\reals,\quad(x,y)\mapsto\scalarprod{x}{y},
+  \]
+  such that
+  \begin{align}
+    \scalarprod{(x+\alpha{y})}{z} & = \scalarprod{x}{z}+\alpha\scalarprod{y}{z},                   \label{axiom:inner-product-01} \\
+    \scalarprod{x}{y}             & = \scalarprod{y}{x},                                           \label{axiom:inner-product-02} \\
+    \scalarprod{x}{x}             &   \geqslant{0}\quad\text{and}\quad\scalarprod{x}{x}=0\iff{x=0},\label{axiom:inner-product-03}
+  \end{align}
+  for all \((\alpha,x,y,z)\in\reals\times{E}\times{E}\times{E}\).
+  \[
+    \norm:E\to\reals,\quad{x\mapsto{\sqrt{\scalarprod{x}{x}}}}.
+  \]
+  \begin{equation}
+    z=x-\frac{\scalarprod{x}{y}}{\norm(y)^{2}}y\in{E}
+  \end{equation}
+  \begin{align*}
+    0\leqslant\scalarprod{z}{z} & =\scalarprod{\left(x-\frac{\scalarprod{x}{y}}{\norm(y)^{2}}y\right)}{\left(x-\frac{\scalarprod{x}{y}}{\norm(y)^{2}}y\right)}               \\
+                                & =\norm(x)^{2}-2\frac{\scalarprod{x}{y}}{\norm(y)^{2}}\scalarprod{x}{y}+\left(\frac{\scalarprod{x}{y}}{\norm(y)^{2}}\right)^{2}\norm(y)^{2} \\
+                                & =\norm(x)^{2}-\frac{(\scalarprod{x}{y})^{2}}{\norm(y)^{2}}
+  \end{align*}
+  from what it follows that
+  \(\abs{\scalarprod{x}{y}}\leqslant\norm(x)\norm(y)\) for all
+  \((x,y)\in{E\times{(E\setminus\left\{0\right\})}}\).
+  \begin{align*}
+    \norm(x+y)^{2} & =\scalarprod{(x+y)}{(x+y)}                                   \\
+                   & =\scalarprod{x}{x}+2\scalarprod{x}{y}+\scalarprod{y}{y}      \\
+                   & \leqslant{\norm(x)^{2}+\abs{\scalarprod{x}{y}}+\norm(y)^{2}} \\
+                   & \leqslant{\norm(x)^{2}+2\norm(x)\norm(y)+\norm(y)^{2}}       \\
+                   & \leqslant\left(\norm(x)+\norm(y)\right)^{2},
+  \end{align*}
+  from what it follows that \(\norm(x+y)\leqslant{\norm(x)+\norm(y)}\) for all
+  \((x,y)\in{E\times{E}}\).
+\end{example}
 
