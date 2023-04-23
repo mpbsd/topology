@@ -21,10 +21,26 @@
   \(\norm\) is a norm on \(V\).
 \end{definition}
 
+\begin{example}\label{the-complex-field-is-a-normed-linear-space}
+  Let
+  \[
+    \complexfield=\left\{a+bi:a,b\in\reals\right\},
+  \]
+  be the field of complex numbers. Then, \((\complexfield,\abs{\cdot})\) is a
+  normed space where \(\complexfield\) is being viewed as a \(1\)-dimensional
+  complex vector space, and \(\abs{\cdot}\) is the absolute value on
+  \(\complexfield\), that is, the function
+  \[
+    \complexfield\to\reals,
+    \quad{a+bi\mapsto\abs{a+bi}=\sqrt{{a}^{2}+{b}^{2}}}.
+  \]
+\end{example}
+
+
 \subsection{\(p\)-Norm}\label{subsec:p-norm}
 
-In this section we closely follow the lines
-of~\cite{yet_another_proof_of_minkowskis_inequality}.
+In this section we closely
+follow~\cite{yet_another_proof_of_minkowskis_inequality}.
 
 \begin{definition}
   Let \(p\geqslant{1}\) be given. Then, the \(p\)-norm on \(\complexfield^{n}\)
@@ -37,8 +53,19 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
   for all \(z=(z_{1},\ldots,z_{n})\in\complexfield^{n}\).
 \end{definition}
 
+Notice that
+\[
+  \forall{a+bi\in\complexfield}:\quad{\norm<1>[2](a+bi)=\sqrt{a^{2}+b^{2}}=\abs{a+bi}},
+\]
+that is, \(\norm<1>[2]\) is the absolute value of complex numbers.
+
+\begin{proposition}\label{proposition:the-p-norm-is-in-fact-a-norm}
+  The function \(\norm<n>[p]\) is a norm on \(\complexfield^{n}\), for every
+  \(p\geqslant{1}\).
+\end{proposition}
+
 \begin{lemma}\label{lemma:on-norms-and-the-convexity-of-the-unitary-closed-ball}
-  Let \(V\) be a complex vector space and \(N:V\to\reals\) be a real-valued
+  Let \(V\) be a complex vector space and \(\norm:V\to\reals\) be a real-valued
   function satisfying:
   \begin{enumerate}
     \item
@@ -138,15 +165,10 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
 \end{lemma}
 
 \begin{proof}
-  An exercise.
+  An exercise to the reader.
 \end{proof}
 
-\begin{proposition}\label{proposition:the-p-norm-is-in-fact-a-norm}
-  \(\norm<n>[p]\) is a norm on \(\complexfield^{n}\), for every
-  \(p\geqslant{1}\).
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[Proof of Proposition~\ref{proposition:the-p-norm-is-in-fact-a-norm}]
   By Lemma~\ref{lemma:on-norms-and-the-convexity-of-the-unitary-closed-ball},
   it suffices to show that the unit ball
   \[
@@ -246,7 +268,7 @@ of~\cite{yet_another_proof_of_minkowskis_inequality}.
 \end{proposition}
 
 \begin{proof}
-  Observe that
+  Notice that
   \[
     \max\limits_{1\leqslant{i}\leqslant{n}}\abs{z_{i}}
     \leqslant\sqrt[p]{\abs{z_{1}}^{p}+\cdots+\abs{z_{n}}^{p}}
