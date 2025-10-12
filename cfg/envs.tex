@@ -1,0 +1,32 @@
+%------------------------------------------------------------------------------------------------%
+% requires the amsthm package %------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------------%
+\newtheoremstyle{problem}              % <name>                                                  %
+{\topsep}                              % <space above>                                           %
+{\topsep}                              % <space below>                                           %
+{}                                     % <body font>                                             %
+{}                                     % <indent amount>                                         %
+{}                                     % <theorem head font>                                     %
+{}                                     % <punctuation after theorem head>                        %
+{\newline}                             % <space after theorem head>                              %
+{\thmnumber{#2}\thmnote{ \texttt{#3}}} % theorem head spec (can be left empty, meaning ‘normal’) %
+%------------------------------------------------------------------------------------------------%
+\theoremstyle{problem}
+\newtheorem{problem}{Problem}
+\renewcommand{\theproblem}{\textbf{\Alph{problem}}}
+
+%-----------------------------------------------------------------------------------------------------------%
+% requires the amsthm package %-----------------------------------------------------------------------------%
+%-----------------------------------------------------------------------------------------------------------%
+\newtheoremstyle{solution}                        % <name>                                                  %
+{\topsep}                                         % <space above>                                           %
+{\topsep}                                         % <space below>                                           %
+{}                                                % <body font>                                             %
+{}                                                % <indent amount>                                         %
+{}                                                % <theorem head font>                                     %
+{}                                                % <punctuation after theorem head>                        %
+{\newline}                                        % <space after theorem head>                              %
+{\texttt{SOLUTION TO PROBLEM}~\ref{\thmnote{#3}}} % theorem head spec (can be left empty, meaning ‘normal’) %
+%-----------------------------------------------------------------------------------------------------------%
+\theoremstyle{solution}
+\newtheorem*{solution}{Solution}

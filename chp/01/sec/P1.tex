@@ -1,0 +1,31 @@
+\begin{problem}[LARGEST AND SMALLEST TOPOLOGIES]\label{problem:largest-and-smallest-topologies}
+  \leavevmode\vspace{-\baselineskip}
+  \begin{enumerate}[(a)]
+    \item
+      The intersection of any collection of topologies for \(X\) is a topology for \(X\).
+    \item
+      The union of two topologies for \(X\) may not be a topology for \(X\) (unless \(X\) consists of at most two points).
+    \item
+      For any collection of topologies for \(X\) there is a unique largest topology which is smaller than each member of the collection, and a unique smallest topology which is larger than each member of the collection.
+  \end{enumerate}
+\end{problem}
+
+\begin{problem}[TOPOLOGIES FROM NEIGHBORHOOD SYSTEMS]
+  \leavevmode\vspace{-\baselineskip}
+  \begin{enumerate}[(a)]
+    \item
+      Let \((X,\mathfrak{T})\) be a topological space and for each \(x\) in \(X\) let \(\mathfrak{U}_{x}\) be the family of all neighborhoods of \(x\). Then:
+      \begin{enumerate}[(i)]
+        \item
+          If \({U}\in{\mathfrak{U}_{x}}\), then \({x}\in{U}\).
+        \item
+          If \(U\) and \(V\) are members of \(\mathfrak{U}_{x}\), then \({{U}\cap{V}}\in{\mathfrak{U}_{x}}\).
+        \item
+          If \({U}\in{\mathfrak{U}_{x}}\) and \({U}\subset{V}\), then \({V}\in{\mathfrak{U}_{x}}\).
+        \item
+          If \({U}\in{\mathfrak{U}_{x}}\), then there is a member \(V\) of \(\mathfrak{U}_{x}\) such that \({V}\subset{U}\) and \({V}\in{\mathfrak{U}_{y}}\) for each \(y\) in \(V\) (that is, \(V\) is a neighborhood of each of its points).
+      \end{enumerate}
+    \item
+      If \(U\) is a function which assigns to each \(x\) in \(X\) a non-void family \(\mathfrak{U}_{x}\) satisfying (i), (ii), and (iii), then the family \(\mathfrak{T}\) of all sets \(U\), such that \({U}\in{\mathfrak{U}_{x}}\) whenever \({x}\in{U}\), is a topology for \(X\). If (iv) is also satisfied, then \(\mathfrak{U}_{x}\) is precisely the neighborhood system of \(x\) relative to the topology \(\mathfrak{T}\).
+  \end{enumerate}
+\end{problem}
